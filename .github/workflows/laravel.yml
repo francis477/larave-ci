@@ -5,19 +5,6 @@ on:
     branches:
       - main
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Remove vendor directory
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
-            cd www/site_dir/
-            [ -d ./vendor ] && rm -rf ./vendor
-          host: ${{ secrets.ssh_host }}
-          user: ${{ secrets.ssh_username }}
-          key: ${{ secrets.USER_PRIVATE_KEY }}
-
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
