@@ -15,14 +15,9 @@ jobs:
       - name: Install Composer Dependencies
         run: composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
-      - name: Create zipped vendor directory
-        uses: montudor/action-zip@v0.1.0
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          args: zip -qq -r ./vendor.zip ./vendor
-
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
-        with:
-          ftp-server: ${{ secrets.ftp_server }}
-          ftp-username: ${{ secrets.username }}
-          ftp-password: ${{ secrets.ftp_password }}
+          server: ftp.slymdev.website
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
