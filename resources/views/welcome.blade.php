@@ -22,7 +22,7 @@
     </head>
     <body class="antialiased">
 
-        <p>Welcome To Staging</p>
+        <p>My Laravel Staging App is working perfectly</p>
 
     </body>
 </html>
