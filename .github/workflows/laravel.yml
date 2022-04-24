@@ -3,7 +3,7 @@ name: Pushing to the staging server live
 on:
   push:
     branches:
-      - staging
+      - main
 jobs:
   setup:
     runs-on: ubuntu-latest
