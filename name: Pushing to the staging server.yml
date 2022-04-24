@@ -38,9 +38,9 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          ftp-server: ${{ secrets.ftp_server }}
-          ftp-username: ${{ secrets.username }}
-          ftp-password: ${{ secrets.ftp_password }}
+          ftp-server: ftp://ADDRESS_HERE/
+          ftp-username: FTP_USER
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
 
   post-deploy:
     runs-on: ubuntu-latest
@@ -57,6 +57,6 @@ jobs:
             php artisan config:clear
             php artisan view:clear
             php artisan route:cache
-          host: ${{ secrets.ssh_host }}
-           user: ${{ secrets.ssh_username }}
+          host: https://SERVER_ADDRESS
+          user: USER
           key: ${{ secrets.USER_PRIVATE_KEY }}
