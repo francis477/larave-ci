@@ -66,3 +66,4 @@ jobs:
           host: ${{ secrets.ip }}
           user: ${{ secrets.ssh_username }}
           key: ${{ secrets.USER_PRIVATE_KEY }}
+          args: "-tt -vvv"
