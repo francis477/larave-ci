@@ -51,19 +51,4 @@ jobs:
           ftp-username: ${{ secrets.ftp_username }}
           ftp-password: ${{ secrets.ftp_password }}
 
-  post-deploy:
-    runs-on: ubuntu-latest
-    needs: deploy
-    steps:
-      - name: Run migrations and seeders, clear cache for views, config and routes
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
-            cd test.slymdev.website
-            php artisan config:clear
-            php artisan view:clear
-            php artisan route:cache
-          host: ${{ secrets.ip }}
-          user: ${{ secrets.ssh_username }}
-          pass: ${{ secrets.ssh_password }}
-          args: "-tt -vvv"
+
