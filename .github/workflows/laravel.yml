@@ -59,7 +59,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: test.slymdev.website
-          user: root
+          username: root
           key: ${{ secrets.ssh_key }}
           port: 22
           script: |
