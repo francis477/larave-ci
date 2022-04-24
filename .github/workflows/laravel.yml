@@ -58,9 +58,10 @@ jobs:
       - name: Run migrations and seeders, clear cache for views, config and routes
         uses: appleboy/ssh-action@master
         with:
-          command: |
-                cd test.slymdev.website
-          host: ${{ secrets.ssh_host }}
-          user: ${{ secrets.ssh_username }}
+          host: test.slymdev.website
+          user: root
           key: ${{ secrets.ssh_key }}
-          port: ${{secrets.ssh_port}}
+          port: 22
+          script: |
+             cd test.slymdev.website
+
