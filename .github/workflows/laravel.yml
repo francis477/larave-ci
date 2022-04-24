@@ -58,11 +58,6 @@ jobs:
       - name: Run migrations and seeders, clear cache for views, config and routes
         uses: appleboy/ssh-action@master
         with:
-          command: |
-                cd test.slymdev.website
-                php artisan config:clear
-                php artisan view:clear
-                php artisan route:cache
           host: ${{ secrets.ssh_host }}
           user: ${{ secrets.ssh_username }}
           key: ${{ secrets.ssh_key }}
