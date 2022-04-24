@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
-      - name: Run migrations and seeders, clear cache for views, config and routes
+      - name: Pass ssh
         uses: appleboy/ssh-action@master
         with:
           host: test.slymdev.website
@@ -63,7 +63,8 @@ jobs:
           key: ${{ secrets.ssh_key }}
           port: 22
           script: |
-             cd test.slymdev.website
-             git pull oringin main
-             git status
+            echo "I am $FOO, thanks"
+            echo "I am $BAR, thanks"
+            echo "sha: $SHA"
+
 
