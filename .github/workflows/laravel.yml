@@ -14,8 +14,8 @@ jobs:
           command: |
             cd www/site_dir/
             [ -d ./vendor ] && rm -rf ./vendor
-          host: https://ADDRESS_HERE
-          user: USER
+          host: ${{ secrets.ssh_host }}
+          user: ${{ secrets.ssh_username }}
           key: ${{ secrets.USER_PRIVATE_KEY }}
 
   deploy:
