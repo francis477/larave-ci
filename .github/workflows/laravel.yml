@@ -1,4 +1,4 @@
-name: Pushing to the staging server
+name: Pushing to the staging server live
 
 on:
   push:
