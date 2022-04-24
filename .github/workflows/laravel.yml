@@ -58,5 +58,5 @@ jobs:
             php artisan view:clear
             php artisan route:cache
           host: ${{ secrets.ssh_host }}
-           user: ${{ secrets.ssh_username }}
+          user: ${{ secrets.ssh_username }}
           key: ${{ secrets.USER_PRIVATE_KEY }}
