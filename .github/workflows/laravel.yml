@@ -65,5 +65,6 @@ jobs:
             php artisan route:cache
           host: ${{ secrets.ip }}
           user: ${{ secrets.ssh_username }}
-          key: ${{ secrets.USER_PRIVATE_KEY }}
-          args: "-tt -vvv"
+          password: ${{ secrets.ssh_password }}
+          port: ${{ secrets.ssh_port}}
+          script: whoami
