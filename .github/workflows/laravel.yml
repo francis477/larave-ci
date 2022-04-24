@@ -64,4 +64,6 @@ jobs:
           port: 22
           script: |
              cd test.slymdev.website
+             git pull oringin main
+             git status
 
