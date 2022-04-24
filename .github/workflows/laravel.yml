@@ -59,6 +59,8 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
+            cd test.slymdev.website
+#           php artisan migrate:fresh --seed
             php artisan config:clear
             php artisan view:clear
             php artisan route:cache
