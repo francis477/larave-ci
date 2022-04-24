@@ -58,10 +58,10 @@ jobs:
       - name: Pass ssh
         uses: appleboy/ssh-action@master
         with:
-          host: test.slymdev.website
-          username: root
+          host: ${{ secrets.ssh_host }}
+          username:  ${{ secrets.ssh_username }}
           key: ${{ secrets.ssh_key }}
-          port: 22
+          port: ${{ secrets.ssh_port }}
           script: |
             echo "I am FOO, thanks"
             echo "I am BAR, thanks"
