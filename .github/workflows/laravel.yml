@@ -11,7 +11,7 @@ jobs:
       - name: Remove vendor directory
         uses: appleboy/ssh-action@master
         with:
-          command: |
+          script: |
             cd test.slymdev.website/
             [ -d ./vendor ] && rm -rf ./vendor
           host: ${{ secrets.ssh_host }}
@@ -49,7 +49,7 @@ jobs:
       - name: Run migrations and seeders, clear cache for views, config and routes
         uses: appleboy/ssh-action@master
         with:
-          command: |
+          script: |
             cd test.slymdev.website/
             unzip -qq ./vendor.zip
             rm -f vendor.zip
