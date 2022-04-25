@@ -55,7 +55,7 @@ jobs:
       needs: deploy
       steps:
         - name: Pass ssh
-          uses: atymic/deployer-php-action@master
+          uses: appleboy/ssh-action@master
           with:
             host: ${{ secrets.ssh_host }}
             key: ${{ secrets.ssh_key }}
