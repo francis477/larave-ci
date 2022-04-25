@@ -57,8 +57,16 @@ jobs:
         - name: Pass ssh
           uses: atymic/deployer-php-action@master
           with:
-            ssh-known-hosts: ${{ secrets.ssh_host }}
-            ssh-private-key: ${{ secrets.ssh_key }}       
+            host: ${{ secrets.ssh_host }}
+            key: ${{ secrets.ssh_key }}
+            username: ${{ secrets.ssh_username }}
+            script: |
+              cd /var/www/html/
+              git checkout -f 
+              git pull
+
+            # ssh-known-hosts: ${{ secrets.ssh_host }}
+            # ssh-private-key: ${{ secrets.ssh_key }}       
         # - name: Deploy to Prod
         # env:
         #   DOT_ENV: ${{ secrets.DOT_ENV_STAGING }}
