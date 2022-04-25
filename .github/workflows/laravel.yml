@@ -29,8 +29,8 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
-          php-version: 7.3 # Use your PHP version
-          extension-csv: mbstring, bcmath # Setup any required extensions for tests
+          php-version: 8.0.2 # Use your PHP version
+          extensions: mbstring, bcmath # Setup any required extensions for tests
       - name: Composer install
         run: composer install
       - name: Run Tests
@@ -50,8 +50,8 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
-          php-version: 7.3
-          extension-csv: mbstring, bcmath
+          php-version: 8.0.2
+          extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
       - name: Setup Deployer
