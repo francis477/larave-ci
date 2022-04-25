@@ -61,6 +61,7 @@ jobs:
             hosts: ${{ secrets.ssh_host }}
             key: ${{ secrets.ssh_key }}
             scripts: |
+                cd test.slymdev.website
                 php artisan config:clear
                 php artisan view:clear
                  php artisan route:cache
