@@ -60,10 +60,7 @@ jobs:
             host: ${{ secrets.ssh_host }}
             key: ${{ secrets.ssh_key }}
             username: ${{ secrets.ssh_username }}
-            script: |
-              cd /var/www/html/
-              git checkout -f 
-              git pull
+            script: 'cd /var/www/html && ./server_deploy.sh'
 
             # ssh-known-hosts: ${{ secrets.ssh_host }}
             # ssh-private-key: ${{ secrets.ssh_key }}       
