@@ -56,9 +56,13 @@ jobs:
       needs: deploy
       steps:
         - name: Pass ssh
-          uses: atymic/deployer-php-action@master
+          uses: appleboy/ssh-action@master
           with:
-            ssh-known-hosts: ${{ secrets.ssh_host }}
-            ssh-private-key: ${{ secrets.ssh_key }}
+            hosts: ${{ secrets.ssh_host }}
+            key: ${{ secrets.ssh_key }}
+            scripts: |
+                php artisan config:clear
+                php artisan view:clear
+                 php artisan route:cache
 
 
