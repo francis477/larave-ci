@@ -26,12 +26,6 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
-      - name: Remove vendor directory
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.ssh_host }}
-          username:  ${{ secrets.ssh_username }}
-          key: ${{ secrets.ssh_key }}
 
   deploy:
     name: Deploy
