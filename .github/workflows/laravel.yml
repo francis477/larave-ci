@@ -58,14 +58,11 @@ jobs:
         - name: Pass ssh
           uses: appleboy/ssh-action@master
           with:
-            host: ${{ secrets.ssh_host }}
+            host: test.slymdev.website:2083
             username:  ${{ secrets.ssh_username }}
             key: ${{ secrets.ssh_key }}
             script : |
               cd test.slymdev.website/
-              unzip -qq ./vendor.zip
-              rm -f vendor.zip
-              php artisan migrate:fresh --seed
               php artisan config:clear
               php artisan view:clear
               php artisan route:cache
