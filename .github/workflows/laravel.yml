@@ -1,4 +1,4 @@
-name: Pushing to the staging server
+name: Pushing to the staging server live
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   setup:
-     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Copy .env
@@ -48,24 +48,26 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
           ftp-server: ${{ secrets.ftp_server }}
-          ftp-username: ${{ secrets.username }}
+          ftp-username: ${{ secrets.ftp_username }}
           ftp-password: ${{ secrets.ftp_password }}
 
   post-deploy:
-    runs-on: ubuntu-latest
-    needs: deploy
-    steps:
-      - name: Run migrations and seeders, clear cache for views, config and routes
-        uses: appleboy/ssh-action@master
-        with:
-          script: |
-            cd test.slymdev.website/
-            unzip -qq ./vendor.zip
-            rm -f vendor.zip
-            php artisan migrate:fresh --seed
-            php artisan config:clear
-            php artisan view:clear
-            php artisan route:cache
-          host: ${{ secrets.ssh_host }}
-          username:  ${{ secrets.ssh_username }}
-          key: ${{ secrets.ssh_key }}
+      runs-on: ubuntu-latest
+      needs: deploy
+      steps:
+        - name: Pass ssh
+          uses: fifsky/ssh-action@master
+          with:
+            host: ${{ secrets.ssh_host }}
+            user:  ${{ secrets.ssh_username }}
+            key: ${{ secrets.ssh_key }}
+            command : |
+              cd www/site_dir/
+              unzip -qq ./vendor.zip
+              rm -f vendor.zip
+              php artisan migrate:fresh --seed
+              php artisan config:clear
+              php artisan view:clear
+              php artisan route:cache
+
+
