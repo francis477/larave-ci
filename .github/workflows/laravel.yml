@@ -58,7 +58,7 @@ jobs:
         - name: Pass ssh
           uses: appleboy/ssh-action@master
           with:
-            hosts: ${{ secrets.ssh_host }}
+            host: ${{ secrets.ssh_host }}
             key: ${{ secrets.ssh_key }}
             scripts: |
                 cd test.slymdev.website
