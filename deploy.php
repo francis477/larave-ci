@@ -39,7 +39,7 @@ task('deploy:secrets', function () {
 host('test.slymdev.website/')
   ->hostname('[162.0.232.38]:21098')
   ->stage('staging')
-  ->user('root')
+  ->user('slymydii')
   ->set('deploy_path', 'cd/test.slymdev.website');
 
 after('deploy:failed', 'deploy:unlock');
