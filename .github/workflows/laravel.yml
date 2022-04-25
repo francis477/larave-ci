@@ -45,7 +45,7 @@ jobs:
           ssh-known-hosts: ${{ secrets.ssh_host }}
           ssh-private-key: ${{ secrets.ssh_key }}
           dep: deploy
-      - name: Deploy to Prod
-        env:
-          DOT_ENV: ${{ secrets.DOT_ENV_STAGING }}  
+      # - name: Deploy to Prod
+      #   env:
+      #     DOT_ENV: ${{ secrets.DOT_ENV_STAGING }}  
         # run: dep deploy staging --tag=${{ env.GITHUB_REF }} -vvv
