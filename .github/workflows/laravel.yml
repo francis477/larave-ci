@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Remove vendor directory
-        uses: fifsky/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
           command: |
-            cd www/site_dir/
+            cd test.slymdev.website/
             [ -d ./vendor ] && rm -rf ./vendor
           host: ${{ secrets.ssh_host }}
           username:  ${{ secrets.ssh_username }}
@@ -47,7 +47,7 @@ jobs:
     needs: deploy
     steps:
       - name: Run migrations and seeders, clear cache for views, config and routes
-        uses: fifsky/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
           command: |
             cd test.slymdev.website/
