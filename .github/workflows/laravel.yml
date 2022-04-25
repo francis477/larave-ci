@@ -40,7 +40,7 @@ jobs:
       - name: Composer install
         run: composer install
       - name: Setup Deployer
-        uses: atymic/deployer-php-action@master
+        uses: deployphp/action@v1
         with:
           ssh-known-hosts: ${{ secrets.ssh_host }}
           ssh-private-key: ${{ secrets.ssh_key }}
